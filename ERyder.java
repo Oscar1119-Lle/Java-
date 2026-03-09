@@ -3,15 +3,10 @@ public class ERyder {
     private int batteryLevel;
     private boolean isAvailable;
     private double kmDriven;
-    public ERyder() {
-        this.bikeID = "DEFAULT_000";
-        this.batteryLevel = 100;
-        this.isAvailable = true;
-        this.kmDriven = 0.0;
-    }
+    public ERyder() {}
     public ERyder(String bikeID, int batteryLevel, boolean isAvailable, double kmDriven) {
         this.bikeID = bikeID;
-        setBatteryLevel(batteryLevel);
+        this.batteryLevel = batteryLevel;
         this.isAvailable = isAvailable;
         this.kmDriven = kmDriven;
     }
@@ -26,7 +21,11 @@ public class ERyder {
         System.out.println("Bike Details");
         System.out.println("Bike ID: " + bikeID);
         System.out.println("Battery Level: " + batteryLevel + "%");
-        System.out.println("Availability: " + (isAvailable ? "Available" : "Not Available"));
+        if(isAvailable){
+            System.out.println("Availability: Available");
+        } else {
+            System.out.println("Availability: Not Available");
+        }
         System.out.println("Total Distance Driven: " + kmDriven + " km");
     }
     public String getBikeID() {
@@ -46,10 +45,10 @@ public class ERyder {
             this.batteryLevel = 0;
         }
     }
-    public boolean isAvailable() {
+    public boolean getIsAvailable() {
         return isAvailable;
     }
-    public void setAvailable(boolean available) {
+    public void setIsAvailable(boolean available) {
         isAvailable = available;
     }
     public double getKmDriven() {
