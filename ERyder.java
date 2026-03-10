@@ -39,11 +39,14 @@ public class ERyder {
         System.out.println("The linked phone number is " + LINKED_PHONE_NUMBER + ".");
         System.out.println("The bike ID is " + bikeID + ".");
         System.out.println("The usage in minutes is " + usageInMinutes + ".");
-        System.out.println("The total fare is " + calculateFare(usageInMinutes) + ".");
+        System.out.println("The total fare is " + calculateFare(usageInMinutes) + ".\n");
     }
     private double calculateFare(int usageInMinutes) {
         this.totalFare = BASE_FARE + (PER_MINUTE_FARE * usageInMinutes);
         return this.totalFare;
+    }
+    public double getTotalFare() {
+        return calculateFare(usageInMinutes);
     }
     public String getBikeID() {
         return bikeID;
@@ -75,10 +78,4 @@ public class ERyder {
         this.kmDriven = kmDriven;
     }
 
-    public static void main(String[] args) {
-        ERyder bike1 = new ERyder("B001", 85, true, 12.5f);
-        ERyder bike2 = new ERyder("B002", 60, false, 7.2f, "student123", 9876543210L);
-        bike1.printRideDetails(20);
-        bike2.printRideDetails(10);
-    }
 }
